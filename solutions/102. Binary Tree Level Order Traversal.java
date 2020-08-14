@@ -14,38 +14,22 @@
 * }
 */
 class Solution {
-   public List<List<Integer>> levelOrder(TreeNode root) {
-       int height=height(root);
-       System.out.println(height);
-       List<List<Integer>> result=new ArrayList<List<Integer>>();
-       for(int i=0;i<=height;i++){
-           List<Integer> temp=getNodesAtDistance(root,i);
-           result.add(temp);
-       }
-       return result;
-   }
-   private int height(TreeNode root){
-       if(root==null)
-           return -1;
-       return 1+Math.max(height(root.left),height(root.right));
-   }
-  public ArrayList<Integer> getNodesAtDistance(TreeNode root,int distance) {
-   var list = new ArrayList<Integer>();
-   getNodesAtDistance(root, distance, list);
-   return list;
- }
-​
- private void getNodesAtDistance(TreeNode root, int distance, ArrayList<Integer> list) {
-   if (root == null)
-     return;
-​
-   if (distance == 0) {
-     list.add(root.val);
-     return;
-   }
-​
-   getNodesAtDistance(root.left, distance - 1, list);
-   getNodesAtDistance(root.right, distance - 1, list);
- }
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> ret = new ArrayList<>();
+        run(root, 0, ret);
+        return ret;
+    }
+    
+    private void run(TreeNode root, int level, List<List<Integer>> ret) {
+        if (root == null) {
+            return;
+        }
+        if (level == ret.size()) {
+            ret.add(new ArrayList<>());
+        }
+        ret.get(level).add(root.val);
+        run(root.left, level + 1, ret);
+        run(root.right, level + 1, ret);
+    }
 }
 ​
