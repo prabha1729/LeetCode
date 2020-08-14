@@ -15,7 +15,7 @@
  */
 class Solution {
     public int maxLevelSum(TreeNode root) {
-    int[] sum =new int[100];
+    int[] sum =new int[10001];
     helper(root,sum,1);
     int level = 0;
     int maxSum = Integer.MIN_VALUE;
