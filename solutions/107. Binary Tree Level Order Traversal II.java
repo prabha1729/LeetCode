@@ -24,7 +24,10 @@ class Solution {
         if(root==null) return;
         if(list.size()==level)
             list.add(new ArrayList());
-        list.get(level).add(root.val);
+        if(level<list.size())
+        {
+            list.get(level).add(root.val);
+        }
         helper(root.left,list,level+1);
         helper(root.right,list,level+1);
     }
