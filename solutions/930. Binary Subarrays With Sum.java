@@ -12,10 +12,12 @@ class Solution {
             if(sum==S){
                 count++;
             }
-            for (int i = start; sum == S && i < end && A[i] == 0; i++){
+            
+            for (int i = start; sum == S && A[i] == 0 && i < end; i++){
                      count++; 
+                
             }
-        }
+        }
         return count;
     }
 }
