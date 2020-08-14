@@ -13,22 +13,48 @@
  *     }
  * }
  */
+//Iterative BFS
 class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        List<List<Integer>> list = new ArrayList();
-        helper(root,list,0);
-        Collections.reverse(list);
+        List<List<Integer>> list=new ArrayList<>();
+        
+        if(root==null){
+            return list;
+        }
+        Queue<TreeNode> q=new LinkedList<>();
+        
+        q.offer(root);
+        
+        while(!q.isEmpty()){
+            List<Integer> currList=new ArrayList<>();
+            int size=q.size();
+            for(int i=0;i<size;i++){
+                TreeNode curr=q.poll();
+                if(curr.left !=null){
+                    q.add(curr.left);
+                }
+                
+                if(curr.right !=null){
+                    q.add(curr.right);
+                }
+                currList.add(curr.val);
+            }
+            
+            list.add(0,currList);
+        }
+        // Collections.reverse(list);
         return list;
     }
-    private void helper(TreeNode root,List<List<Integer>> list,int level){
-        if(root==null) return;
-        if(list.size()==level)
-            list.add(new ArrayList());
-        if(level<list.size())
-        {
-            list.get(level).add(root.val);
-        }
-        helper(root.left,list,level+1);
-        helper(root.right,list,level+1);
-    }
 }
+// class Solution {
+//     public List<List<Integer>> levelOrderBottom(TreeNode root) {
+//         List<List<Integer>> list = new ArrayList();
+//         helper(root,list,0);
+//         Collections.reverse(list);
+//         return list;
+//     }
+//     private void helper(TreeNode root,List<List<Integer>> list,int level){
+//         if(root==null) return;
+//         if(list.size()==level)
+//             list.add(new ArrayList());
+// }
