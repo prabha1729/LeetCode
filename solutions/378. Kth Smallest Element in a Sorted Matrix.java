@@ -9,7 +9,7 @@ class Solution {
                 res[l]= matrix[i][j];
                 l++;
             }
-        }
+        }
         Arrays.sort(res);
         return res[k-1];
         // List<Integer> list =new ArrayList();
