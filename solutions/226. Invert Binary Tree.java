@@ -45,3 +45,11 @@ class Solution {
     // }
     // private TreeNode swapLeftRight(TreeNode root) {
     //     if(root!=null){
+    //         TreeNode temp = root;
+    //         temp = root.left;
+    //         root.left = root.right;
+    //         root.right = temp;
+    //     }
+    //     return root;
+    // }
+}
