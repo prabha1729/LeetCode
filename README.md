@@ -12,5 +12,6 @@
 |283|[ Move Zeroes](https://leetcode.com/problems/move-zeroes/)|[Java](./solutions/283.%20Move%20Zeroes.java)|N/A|
 |528|[ Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)|[Java](./solutions/528.%20Random%20Pick%20with%20Weight.java)|19 ms|
 |538|[ Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/)|[Java](./solutions/538.%20Convert%20BST%20to%20Greater%20Tree.java)|0 ms|
+|720|[ Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary/)|[Java](./solutions/720.%20Longest%20Word%20in%20Dictionary.java)|16 ms|
 |1046|[ Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Java](./solutions/1046.%20Last%20Stone%20Weight.java)|1 ms|
 |1382|[ Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree/)|[Java](./solutions/1382.%20Balance%20a%20Binary%20Search%20Tree.java)|2 ms|
