@@ -10,7 +10,9 @@ class Solution {
         }
     }
     public void rotate(int[] nums, int k) {
+       
         int len = nums.length;
+        // k = len-k;  ##k times left shift
         k = k%len;
         reverseArray(nums,0,len-1);
         reverseArray(nums,0,k-1);
