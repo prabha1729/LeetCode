@@ -16,22 +16,46 @@ class Node {
     }
 };
 */
-​
 class Solution {
     public List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> list = new ArrayList();
-        helper(root,list,0);
+        if(root==null) return list;
+        Queue<Node> queue = new LinkedList();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            List<Integer> curList = new ArrayList();
+            for(int i=0;i<size;i++){
+                Node cur = queue.poll();
+                curList.add(cur.val);
+                for(var child:cur.children){
+                    if(child!=null)
+                        queue.add(child);
+                        // curList.add(child.val);
+                }
+            }
+            list.add(curList);
+        }
         return list;
     }
-    private void helper(Node root,List<List<Integer>> list,int level){
-        if(root==null) return;
-        if(list.size()==level)
-            list.add(new ArrayList());
-        list.get(level).add(root.val);
-        for(var child:root.children){
-            helper(child,list,level+1);
-        }
-        // helper(root.left,list,0);
-        // helper(root.right,list,0);
-    }
 }
+​
+​
+​
+//Recursive
+// class Solution {
+//     public List<List<Integer>> levelOrder(Node root) {
+//         List<List<Integer>> list = new ArrayList();
+//         helper(root,list,0);
+//         return list;
+//     }
+//     private void helper(Node root,List<List<Integer>> list,int level){
+//         if(root==null) return;
+//         if(list.size()==level)
+//             list.add(new ArrayList());
+//         list.get(level).add(root.val);
+//         for(var child:root.children){
+//             helper(child,list,level+1);
+//         }
+//     }
+// }
