@@ -12,5 +12,5 @@ public class Solution {
             }
         }
         return l2.stream().mapToInt(i -> i).toArray();
-    }
+    }
 }
