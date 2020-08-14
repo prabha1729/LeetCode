@@ -16,6 +16,8 @@
 class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
     List<List<Integer>> list = new ArrayList();
+    // leftToRight(root,list,0);
+    // rightToLeft(root,list,1);
     helper(root,list,0);
     return list;
     }
@@ -29,5 +31,21 @@ class Solution {
             list.get(level).add(0, root.val);
         helper(root.left,list,level+1);
         helper(root.right,list,level+1);
+    }
+    private void leftToRight(TreeNode root,List<List<Integer>> list,int level){
+        if(root==null) return;
+        if(list.size()==level)
+            list.add(new ArrayList());
+        list.get(level).add(root.val);
+        leftToRight(root.left,list,level+2);
+        leftToRight(root.right,list,level+2);
+    }
+    private void rightToLeft(TreeNode root,List<List<Integer>> list,int level){
+        if(root==null) return;
+        if(list.size()==level)
+            list.add(new ArrayList());
+        list.get(level).add(root.val);
+        rightToLeft(root.right,list,level+2);
+        rightToLeft(root.left,list,level+2);
     }
 }
