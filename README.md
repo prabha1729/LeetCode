@@ -15,6 +15,7 @@
 |528|[ Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)|[Java](./solutions/528.%20Random%20Pick%20with%20Weight.java)|19 ms|
 |538|[ Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/)|[Java](./solutions/538.%20Convert%20BST%20to%20Greater%20Tree.java)|0 ms|
 |720|[ Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary/)|[Java](./solutions/720.%20Longest%20Word%20in%20Dictionary.java)|16 ms|
+|930|[ Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)|[Java](./solutions/930.%20Binary%20Subarrays%20With%20Sum.java)|3 ms|
 |1004|[ Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)|[Java](./solutions/1004.%20Max%20Consecutive%20Ones%20III.java)|N/A|
 |1046|[ Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Java](./solutions/1046.%20Last%20Stone%20Weight.java)|1 ms|
 |1161|[ Maximum Level Sum of a Binary Tree](https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/)|[Java](./solutions/1161.%20Maximum%20Level%20Sum%20of%20a%20Binary%20Tree.java)|3 ms|
