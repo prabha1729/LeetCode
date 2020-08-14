@@ -13,23 +13,35 @@
 *     }
 * }
 */
+​
+//Iterative BFS
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> ret = new ArrayList<>();
-        run(root, 0, ret);
-        return ret;
-    }
-    
-    private void run(TreeNode root, int level, List<List<Integer>> ret) {
-        if (root == null) {
-            return;
+        List<List<Integer>> list=new ArrayList<>();
+        
+        if(root==null){
+            return list;
         }
-        if (level == ret.size()) {
-            ret.add(new ArrayList<>());
+        Queue<TreeNode> q=new LinkedList<>();
+        
+        q.offer(root);
+        
+        while(!q.isEmpty()){
+            List<Integer> currList=new ArrayList<>();
+            int size=q.size();
+            for(int i=0;i<size;i++){
+                TreeNode curr=q.poll();
+                if(curr.left !=null){
+                    q.add(curr.left);
+                }
+                
+                if(curr.right !=null){
+                    q.add(curr.right);
+                }
+                currList.add(curr.val);
+            }
+            
+            list.add(currList);
         }
-        ret.get(level).add(root.val);
-        run(root.left, level + 1, ret);
-        run(root.right, level + 1, ret);
-    }
-}
-​
+        
+        return list;
