@@ -1,35 +1,48 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
-public class Solution {
-    public List < Double > averageOfLevels(TreeNode root) {
-        List < Integer > count = new ArrayList < > ();
-        List < Double > res = new ArrayList < > ();
-        average(root, 0, res, count);
-        for (int i = 0; i < res.size(); i++)
-            res.set(i, res.get(i) / count.get(i));
+            int size = q.size();
+            for(int i = 0; i < size; i++){
+                TreeNode cur = q.remove();
+                sum += cur.val;
+                count++;
+                if(cur.left != null){
+                    q.add(cur.left);
+                }
+                if(cur.right != null){
+                    q.add(cur.right);
+                }
+            }
+            res.add(sum * 1.0 / size);
+​
+        }
         return res;
     }
-    public void average(TreeNode t, int i, List < Double > sum, List < Integer > count) {
-        if (t == null)
-            return;
-        if (i < sum.size()) {
-            sum.set(i, sum.get(i) + t.val);
-            count.set(i, count.get(i) + 1);
-        } 
-        if(i==sum.size()) {
-            sum.add((double)t.val);
-            count.add(1);
-        }
-         
-        average(t.left, i + 1, sum, count);
-        average(t.right, i + 1, sum, count);
+    
+//     public List<Double> averageOfLevels(TreeNode root) {
+//         //Sum stores the sum of each level
+//         //Count stores the number of nodes at each level
+//         List<Double> sum=new ArrayList<>();
+//         List<Double> count=new ArrayList<>();
+//         compute(sum,count,root,0);
+//         for(int i=0;i<sum.size();i++)
+//             sum.set(i,sum.get(i)/count.get(i));
+//         return sum;
+        
+//     }
+    
+    public void compute(List<Double> sum,List<Double> count,TreeNode curr,int level)
+    {
+        if(curr==null) return;
+        
+        if(sum.size()==level) 
+        {
+            sum.add(0.0);
+            count.add(0.0);
+        }   
+        
+        sum.set(level,sum.get(level)+(double)curr.val);
+        count.set(level,count.get(level)+1);
+        
+        compute(sum,count,curr.left,level+1);
+        compute(sum,count,curr.right,level+1);
     }
 }
 ​
