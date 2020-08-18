@@ -21,7 +21,7 @@ class Solution {
             if(windowStart>=0){
                 result[idx] = nums[deque.peek()];
                 idx++;
-            }
+            }
         }
         return result;
     }
