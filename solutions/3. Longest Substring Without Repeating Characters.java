@@ -5,7 +5,7 @@ class Solution {
     while (j < s.length()) {
         if (!set.contains(s.charAt(j))) {
             set.add(s.charAt(j++));
-            max = Math.max(max, j-i);
+            max = Math.max(max, set.size());//
         } else {
             set.remove(s.charAt(i++));
         }
