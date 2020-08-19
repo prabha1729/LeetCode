@@ -6,28 +6,26 @@ class Solution {
         int n = nums.length;
         int[] result = new int[n-k+1];
         int idx = 0;
-        int max = findMaxInRange(nums,0,k-1);
+        int start = 0;
+        int max = findMaxInRange(nums,0,k);
         result[idx++] = max;
-        for(int i=k;i<n;i++){
-            if(max==nums[i-k]){
-                int current_max = findMaxInRange(nums,i-k+1,i);
-                max = current_max;
-                result[idx++] = max;
-            }else{
-                if(nums[i]>max){
-                    max=nums[i];
-                }
-                 result[idx++] = max;
+        
+        for(int end=k;end<n;end++){
+            if(max==nums[start]){
+                max = findMaxInRange(nums,start+1,end);
             }
-            
+            if(nums[end]>max){
+                max=nums[end];
+            }
+            result[idx++] = max;
+            start++;
         }
         return result;
     }
     public int findMaxInRange(int[] array, int start,int end){
         int max = Integer.MIN_VALUE;
-        for(int i=start;i<=end;i++){
-            if(array[i]>max){
+        for(int i=start;i<end;i++){
+            if(array[i]>=max){
                 max = array[i];
             }
         }
-        return max; 
