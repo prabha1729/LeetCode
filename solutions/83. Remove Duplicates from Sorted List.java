@@ -8,17 +8,28 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class Solution {
+//Single Pointer
+/*class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode temp = head;
         while(temp!=null && temp.next!=null){
             if(temp.val==temp.next.val){
                 temp.next = temp.next.next;
-            }
+            }
              else{
                  temp = temp.next;
              }
-        }
+        }
         return head;
-    }
-}
+    }
+}*/
+​
+//Two Pointer
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if(head==null || head.next==null) return head;
+        ListNode p1 = head;
+        ListNode p2 = p1.next;
+        while(p2!=null){
+            if(p1.val==p2.val){
+                p1.next = p2.next;
